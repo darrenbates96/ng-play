@@ -5,16 +5,20 @@ import { AppRoutingModule } from "./app-routing.module";
 import { AppComponent } from "./app.component";
 import { DashboardComponent } from "./dashboard/dashboard.component";
 import { HomeComponent } from "./home/home.component";
-import { ContactComponent } from "./contact/contact.component";
 import { NoopAnimationsModule } from "@angular/platform-browser/animations";
 import { MaterialModule } from "./material/material.module";
+import { ShopComponent } from "./shop/shop.component";
+import { CameraComponent } from "./camera/camera.component";
+import { InfoComponent } from "./info/info.component";
 
 @NgModule({
     declarations: [
         AppComponent,
         DashboardComponent,
         HomeComponent,
-        ContactComponent,
+        ShopComponent,
+        CameraComponent,
+        InfoComponent,
     ],
     imports: [
         BrowserModule,

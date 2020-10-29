@@ -1,14 +1,49 @@
-<div class="l-dashboard-container">
-    <div
-        class="l-navigation-bar d-flex flex-row justify-content-between align-items-center px-4"
-    >
-        <h1 class="l-nav-h1 m-0 p-0">ng-Play</h1>
-        <ul class="l-nav-ul d-none d-md-flex flex-row align-center m-0 p-0">
-            <li class="l-nav-li" routerLink="home">Home</li>
-            <li class="l-nav-li pl-3" routerLink="about">About</li>
-            <li class="l-nav-li pl-3" routerLink="contact">Contact</li>
-        </ul>
-        <mat-icon class="l-nav-menu-icon d-block d-md-none">subject</mat-icon>
+<div class="l-dashboard-container d-flex flex-row">
+    <div class="l-navigation-bar d-flex flex-column align-items-center">
+        <div
+            [ngClass]="
+                activeIcon === 'home'
+                    ? 'l-icon-container-active d-flex justify-content-center align-items-center'
+                    : 'l-icon-container d-flex justify-content-center align-items-center'
+            "
+            (click)="changeActiveIcon('home')"
+            routerLink="home"
+        >
+            <mat-icon class="l-navigation-icon">home</mat-icon>
+        </div>
+        <div
+            [ngClass]="
+                activeIcon === 'shop'
+                    ? 'l-icon-container-active d-flex justify-content-center align-items-center'
+                    : 'l-icon-container d-flex justify-content-center align-items-center'
+            "
+            (click)="changeActiveIcon('shop')"
+            routerLink="shop"
+        >
+            <mat-icon class="l-navigation-icon">shopping_cart</mat-icon>
+        </div>
+        <div
+            [ngClass]="
+                activeIcon === 'camera'
+                    ? 'l-icon-container-active d-flex justify-content-center align-items-center'
+                    : 'l-icon-container d-flex justify-content-center align-items-center'
+            "
+            (click)="changeActiveIcon('camera')"
+            routerLink="camera"
+        >
+            <mat-icon class="l-navigation-icon">camera_enhance</mat-icon>
+        </div>
+        <div
+            [ngClass]="
+                activeIcon === 'info'
+                    ? 'l-icon-container-active d-flex justify-content-center align-items-center'
+                    : 'l-icon-container d-flex justify-content-center align-items-center'
+            "
+            (click)="changeActiveIcon('info')"
+            routerLink="info"
+        >
+            <mat-icon class="l-navigation-icon">info</mat-icon>
+        </div>
     </div>
     <div class="l-dashboard-main">
         <ng-content content></ng-content>
