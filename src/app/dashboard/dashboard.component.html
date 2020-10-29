@@ -1,51 +1,50 @@
 <div class="l-dashboard-container d-flex flex-row">
-    <div class="l-navigation-bar d-flex flex-column align-items-center">
-        <div
-            [ngClass]="
-                activeIcon === 'home'
-                    ? 'l-icon-container-active d-flex justify-content-center align-items-center'
-                    : 'l-icon-container d-flex justify-content-center align-items-center'
-            "
-            (click)="changeActiveIcon('home')"
-            routerLink="home"
-        >
-            <mat-icon class="l-navigation-icon">home</mat-icon>
-        </div>
-        <div
-            [ngClass]="
-                activeIcon === 'shop'
-                    ? 'l-icon-container-active d-flex justify-content-center align-items-center'
-                    : 'l-icon-container d-flex justify-content-center align-items-center'
-            "
-            (click)="changeActiveIcon('shop')"
-            routerLink="shop"
-        >
-            <mat-icon class="l-navigation-icon">shopping_cart</mat-icon>
-        </div>
-        <div
-            [ngClass]="
-                activeIcon === 'camera'
-                    ? 'l-icon-container-active d-flex justify-content-center align-items-center'
-                    : 'l-icon-container d-flex justify-content-center align-items-center'
-            "
-            (click)="changeActiveIcon('camera')"
-            routerLink="camera"
-        >
-            <mat-icon class="l-navigation-icon">camera_enhance</mat-icon>
-        </div>
-        <div
-            [ngClass]="
-                activeIcon === 'info'
-                    ? 'l-icon-container-active d-flex justify-content-center align-items-center'
-                    : 'l-icon-container d-flex justify-content-center align-items-center'
-            "
-            (click)="changeActiveIcon('info')"
-            routerLink="info"
-        >
-            <mat-icon class="l-navigation-icon">info</mat-icon>
-        </div>
+  <div class="l-navigation-bar d-flex flex-column align-items-center">
+    <!-- method 1 [ngClass] use for multiple classes/ variable checks -->
+    <div
+      [ngClass]="{
+            'l-icon-container-active': activeIcon === 'home',
+            'l-icon-container': activeIcon !== 'home',
+    }"
+      class="d-flex justify-content-center align-items-center"
+      (click)="changeActiveIcon('home')"
+      routerLink="home"
+    >
+      <mat-icon class="l-navigation-icon">home</mat-icon>
     </div>
-    <div class="l-dashboard-main">
-        <ng-content content></ng-content>
+
+    <!-- method 2 [class.] single class, single or multiple conditions -->
+    <div
+      class="d-flex justify-content-center align-items-center l-icon-container"
+      [class.l-icon-container-active]="activeIcon === 'shop'"
+      (click)="changeActiveIcon('shop')"
+      routerLink="shop"
+    >
+      <mat-icon class="l-navigation-icon">shopping_cart</mat-icon>
     </div>
+
+    <!-- method 3 router link where ever you have a router -->
+    <div
+      class="d-flex justify-content-center align-items-center l-icon-container"
+      (click)="changeActiveIcon('camera')"
+      routerLink="camera"
+      routerLinkActive="l-icon-container-active"
+    >
+      <mat-icon class="l-navigation-icon">camera_enhance</mat-icon>
+    </div>
+    <div
+      [ngClass]="
+        activeIcon === 'info'
+          ? 'l-icon-container-active d-flex justify-content-center align-items-center'
+          : 'l-icon-container d-flex justify-content-center align-items-center'
+      "
+      (click)="changeActiveIcon('info')"
+      routerLink="info"
+    >
+      <mat-icon class="l-navigation-icon">info</mat-icon>
+    </div>
+  </div>
+  <div class="l-dashboard-main">
+    <ng-content content></ng-content>
+  </div>
 </div>
