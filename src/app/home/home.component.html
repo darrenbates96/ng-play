@@ -6,6 +6,22 @@
             <h1 class="l-home-h1">Good morning Vlad!</h1>
             <h2 class="l-home-h2">Check your home analysis and review it.</h2>
         </div>
+        <div class="d-flex flex-row align-items-center">
+            <div
+                class="l-widget d-flex flex-row ml-5"
+                *ngFor="let widget of widgets"
+            >
+                <mat-icon class="l-widget-icon">{{ widget.iconName }}</mat-icon>
+                <div
+                    class="l-widget-info d-flex flex-column justify-content-between"
+                >
+                    <p class="l-widget-p l-header m-0 p-0">
+                        {{ widget.widgetHeader }}
+                    </p>
+                    <p class="l-widget-p m-0 p-0">{{ widget.widgetDetail }}</p>
+                </div>
+            </div>
+        </div>
     </div>
     <div class="l-home-main-container"></div>
 </div>
